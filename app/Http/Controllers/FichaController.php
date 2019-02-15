@@ -91,7 +91,14 @@ class FichaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ficha = Ficha::find($id);
+        $users = User::all(['id', 'name']);
+        $pacientes = Paciente::all(['id', 'nome']);
+        $doenca_bases = Doenca_base::all(['id', 'nome']);
+        $transfusaos = Transfusao::all(['id', 'nome']);
+        $gravidades = Gravidade::all(['id', 'nome']);
+        $tipos_imediatas = Tipos_imediata::all(['id', 'nome']);
+        return view('ficha.edit', compact('ficha','users', 'pacientes', 'doenca_bases', 'transfusaos', 'gravidades', 'tipos_imediatas'));
     }
 
     /**
@@ -103,7 +110,26 @@ class FichaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'users_id' => 'required',
+            'pacientes_id' => 'required',
+            'finalizado' => 'required',
+            'doenca_bases_id' => 'required',
+            'transfusaos_id' => 'required',
+            'gravidades_id' => 'required',
+            'data_reacao' => 'required',
+            'descricao' => 'required',
+            'pre_medicacao' => 'required',
+            'reacao_adversa' => 'required',
+            'indicacao' => 'required',
+            'tipos_imediatas_id' => 'required'
+        ]);
+        $ficha = new Ficha();
+        $ficha->fill($request->all());
+        $ficha->save();
+
+        return redirect()->route('ficha.index')
+            ->with('success', 'Ficha atualizada com sucesso');
     }
 
     /**
