@@ -8,4 +8,8 @@ class Paciente extends Model
 {
     protected $fillable = ['nome','sus','sexo','raca','profissao','mae','rg','data_nascimento'];
     protected $dates = ['data_nascimento'];
+
+    public function fichas() {
+        return $this->hasMany(Ficha::class);
+    }
 }
