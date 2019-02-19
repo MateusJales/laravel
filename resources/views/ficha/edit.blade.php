@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-md-12">
                     <strong>Paciente: </strong>
-                    <select name="fichas_id" class="form-control">
+                    <select name="pacientes_id" class="form-control">
                         @foreach($pacientes as $paciente)
                             <option value="{{$paciente->id}}">{{$paciente->nome}}</option>
                         @endforeach

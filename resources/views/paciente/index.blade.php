@@ -16,7 +16,6 @@
                 <p>{{$message}}</p>
             </div>
         @endif
-
         <table class="table table-hover table-sm">
             <tr>
                 <th width = "50px"><b>No.</b></th>

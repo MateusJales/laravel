@@ -52,7 +52,7 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <strong>Data de Nascimento: </strong> {{$paciente->data_nascimento}}
+                    <strong>Data de Nascimento: </strong> {{$paciente->data_nascimento->format('d/m/Y')}}
                 </div>
             </div>
             <div class="col-md-12">

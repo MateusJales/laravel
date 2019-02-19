@@ -27,6 +27,29 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                @auth
+                    <a class="navbar-brand" href="{{ url('/paciente') }}">
+                        Pacientes
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/ficha') }}">
+                        Fichas
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/transfusao') }}">
+                        Transfusões
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/gravidade') }}">
+                        Gravidades
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/doenca_base') }}">
+                        Doenças Bases
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/tipos_imediata') }}">
+                        Tipos Imediatos
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/tipos_tardia') }}">
+                        Tipos Tardios
+                </a>
+                @endauth
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

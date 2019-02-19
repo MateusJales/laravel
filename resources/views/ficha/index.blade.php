@@ -21,12 +21,22 @@
             <tr>
                 <th width = "50px"><b>No.</b></th>
                 <th width = "350px">Descrição da Ficha</th>
+                <th width = "200px">Paciente</th>
+                <th width = "200px">Gravidade</th>
+                <th width = "200px">Finalizada</th>
                 <th width = "180px">Ação</th>
             </tr>
             @foreach ($fichas as $ficha)
                 <tr>
                     <td><b>{{++$i}}.</b></td>
                     <td>{{$ficha->descricao}}</td>
+                    <td>{{\App\Paciente::find($ficha->pacientes_id)->nome}}</td>
+                    <td>{{\App\Gravidade::find($ficha->gravidades_id)->nome}}</td>
+                    @if ($ficha->finalizado)
+                        <td>Sim</td>
+                    @else
+                        <td>Não</td>
+                    @endif
                     <td>
                         <form action="{{ route('ficha.destroy', $ficha->id) }}" method="post">
                             <a class="btn btn-sm btn-success" href="{{route('ficha.show', $ficha->id)}}">Show</a>

@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
-                <h3>Lista da Gravidade</h3>
+                <h3>Lista de Gravidades</h3>
             </div>
             <div class="col-sm-2">
-                <a class="btn btn-sm btn-sucess" href="{{ route('gravidade.create') }}">Cadastrar nova Gravidade</a>
+                <a class="btn btn-sm btn-sucess" href="{{ route('gravidade.create') }}">Cadastrar nova gravidade</a>
             </div>
         </div>
 

@@ -80,7 +80,14 @@ class FichaController extends Controller
      */
     public function show($id)
     {
-        //
+        $ficha = Ficha::find($id);
+        $users = User::find($ficha->users_id);
+        $pacientes = Paciente::find($ficha->pacientes_id);
+        $doenca_bases = Doenca_base::find($ficha->doenca_bases_id);
+        $transfusaos = Transfusao::find($ficha->transfusaos_id);
+        $gravidades = Gravidade::find($ficha->gravidades_id);
+        $tipos_imediatas = Tipos_imediata::find($ficha->tipos_imediatas_id);
+        return view('ficha.detail', compact('ficha','users', 'pacientes', 'doenca_bases', 'transfusaos', 'gravidades', 'tipos_imediatas'));
     }
 
     /**
@@ -124,7 +131,7 @@ class FichaController extends Controller
             'indicacao' => 'required',
             'tipos_imediatas_id' => 'required'
         ]);
-        $ficha = new Ficha();
+        $ficha = Ficha::find($id);
         $ficha->fill($request->all());
         $ficha->save();
 
@@ -140,6 +147,9 @@ class FichaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ficha = Ficha::find($id);
+        $ficha->delete();
+        return redirect()->route('ficha.index')
+            ->with('success', 'Ficha deletada com sucesso');
     }
 }

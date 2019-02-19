@@ -20,14 +20,7 @@
         <form action="{{route('ficha.store')}}" method="post">
             @csrf
             <div class="row">
-                <div class="col-md-12">
-                    <strong>Usuário Vinculado: </strong>
-                    <select name="users_id" class="form-control">
-                        @foreach($users as $user)
-                            <option value="{{$user->id}}">{{$user->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
+                <input type="hidden" name="users_id" value="{{Auth::id()}}">
                 <div class="col-md-12">
                     <strong>Paciente: </strong>
                     <select name="pacientes_id" class="form-control">
