@@ -33,13 +33,12 @@ class FichaController extends Controller
      */
     public function create()
     {
-        $users = User::all(['id', 'name']);
         $pacientes = Paciente::all(['id', 'nome']);
         $doenca_bases = Doenca_base::all(['id', 'nome']);
         $transfusaos = Transfusao::all(['id', 'nome']);
         $gravidades = Gravidade::all(['id', 'nome']);
         $tipos_imediatas = Tipos_imediata::all(['id', 'nome']);
-        return view('ficha.create', compact('users', 'pacientes', 'doenca_bases', 'transfusaos', 'gravidades', 'tipos_imediatas'));
+        return view('ficha.create', compact('pacientes', 'doenca_bases', 'transfusaos', 'gravidades', 'tipos_imediatas'));
     }
 
     /**

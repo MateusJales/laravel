@@ -17,19 +17,19 @@
             </div>
         @endif
 
-        <form action="{{route('gravidade.store')}}" method="post">
-            @csrf
-            <div class="row">
-                <div class="col-md-12">
-                    <strong>Nome da Gravidade: </strong>
-                    <input type="text" name="nome" class="form-control" placeholder="Nome da Gravidade">
-                </div>
-                <div class="col-md-12">
-                    <a href="{{route('gravidade.index')}}" class="btn btn-sm btn-success">Voltar</a>
-                    <button type="submit" class="btn btn-sm btn-primary">Enviar</button>
-                </div>
+        {!! Form::open(['route' => 'gravidade.store']) !!}
+        @csrf
+        <div class="row">
+            <div class="col-md-12">
+                <strong>Nível da gravidade: </strong>
+                {!! Form::text('nome', null, ['placeholder'=>'Nível da Gravidade','class'=>'form-control']) !!}
             </div>
-        </form>
+            <div class="col-md-12">
+                <a href="{{route('gravidade.index')}}" class="btn btn-sm btn-success">Voltar</a>
+                {!! Form::submit('Enviar', ['class'=>'btn btn-sm btn-primary']); !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
 
     </div>
 @endsection

@@ -7,11 +7,6 @@ use Illuminate\Http\Request;
 
 class Doenca_baseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $doenca_bases = Doenca_base::latest()->paginate(5);
@@ -19,22 +14,11 @@ class Doenca_baseController extends Controller
             ->with('i', (request()->input('page', 1) -1)*5);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('doenca_base.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -46,37 +30,18 @@ class Doenca_baseController extends Controller
             ->with('success', 'Nova doença registrado com sucesso');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $doenca_base = Doenca_base::find($id);
         return view('doenca_base.detail', compact('doenca_base'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $doenca_base = Doenca_base::find($id);
         return view('doenca_base.edit', compact('doenca_base'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $request->validate([

@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 route::resource('paciente', 'PacienteController');
 route::resource('doenca_base', 'Doenca_baseController');
 route::resource('gravidade', 'GravidadeController');

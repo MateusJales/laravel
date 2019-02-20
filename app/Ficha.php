@@ -2,7 +2,6 @@
 
 namespace App;
 
-use App\Http\Controllers\PacienteController;
 use Illuminate\Database\Eloquent\Model;
 
 class Ficha extends Model
